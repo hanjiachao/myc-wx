@@ -1,0 +1,30 @@
+<view>
+  <view class="header-personal" style="height: 158px;">
+    <view class="search">
+      <view class="fr search-btn" bindtap="search">搜索</view>
+      <view class="search-input">
+        <image src="../../image/search.png" class="fl"></image>
+        <input type="text" placeholder="作品名称" bindinput="skeyname"/>
+      </view>
+    </view>
+  </view>
+  <view class="content-box">
+    <view style="clear: both;height: calc(100vh - 70px);overflow-y: scroll">
+      <view wx:if="{{list.length > 0}}">
+        <view class="opus-item" bindtap="opusdetail" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" data-id="{{item.pr_id}}">
+          <image src="{{item.pr_image}}"></image>
+          <view class="opus-t1">
+            {{item.pr_name}}
+            <view class="label" wx:if="{{item.pr_label == '优秀'}}">优</view>
+          </view>
+          <view class="opus-t2">学科名称：{{item.ca_name}}</view>
+          <view class="opus-t2">班级编号：{{item.us_class_number}}</view>
+          <view class="opus-t3"><image src="../../image/icon9.png"></image>{{item.pr_like_number}}</view>
+        </view>
+      </view>
+      <view class="noText" wx:else>
+        暂无结果~
+      </view>
+    </view>
+  </view>
+</view>

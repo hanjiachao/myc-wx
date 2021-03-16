@@ -1,0 +1,44 @@
+<view>
+  <view class="header-personal">
+    <view class="fl">
+      <image src="{{headimg}}" wx:if="{{messStatus}}"></image>
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" wx:else>获取头像</button>
+    </view>
+    <view class="personal-title">
+      <view class="font-h3" wx:if="{{messStatus}}">{{name}}</view>
+      <view class="font-h4" wx:if="{{messStatus && list}}">{{list.us_class_number}}</view>
+    </view>
+  </view>
+  <view class="per-list">
+    <view class="per-item" bindtap="performance">
+      <image src="../../image/icon05.png" class="fl per-icon"></image>
+      <image src="../../image/icon08.png" class="fr per-ri"></image>
+      <view>我的成绩</view>
+    </view>
+    <view class="per-item" bindtap="energy">
+      <image src="../../image/per-icon02.png" class="fl per-icon"></image>
+      <image src="../../image/icon08.png" class="fr per-ri"></image>
+      <view>码蚁能量</view>
+    </view>
+    <view class="per-item" bindtap="leave">
+      <image src="../../image/per-icon03.png" class="fl per-icon"></image>
+      <image src="../../image/icon08.png" class="fr per-ri"></image>
+      <view>我的请假</view>
+    </view>
+    <view class="per-item" bindtap="clock">
+      <image src="../../image/icon06.png" class="fl per-icon"></image>
+      <image src="../../image/icon08.png" class="fr per-ri"></image>
+      <view>打卡记录</view>
+    </view>
+    <view class="per-item" bindtap="opus">
+      <image src="../../image/icon07.png" class="fl per-icon"></image>
+      <image src="../../image/icon08.png" class="fr per-ri"></image>
+      <view>我的作品</view>
+    </view>
+	<view class="per-item" bindtap="meal">
+	  <image src="../../image/icon15.png" class="fl per-icon"></image>
+	  <image src="../../image/icon08.png" class="fr per-ri"></image>
+	  <view>我的用餐</view>
+	</view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+<!--pages/meal/meal.wxml-->
+<view>
+	<view class="text" wx:if="{{status}}">最新更新时间：{{date}}</view>
+	<image src="{{code}}" mode="widthFix"></image>
+	<view class="text" wx:if="{{status}}">您当前{{status}}</view>
+</view>

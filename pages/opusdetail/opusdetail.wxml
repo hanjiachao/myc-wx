@@ -1,0 +1,33 @@
+<view>
+    <view class="opus-img">
+      <image src="{{info.pr_image}}" style="width: 100%;height: 200px;border-radius: 13px 13px 0px 0px;"></image>
+    </view>
+  <view class="content-box">
+    <view class="opus-title">
+      <view class="fr"><image src="../../image/icon9.png"></image>{{info.pr_like_number}}</view>
+      {{info.pr_name}}
+    </view>
+    <view class="opus-title1">
+      <view class="fl">
+        <image src="{{info.us_headimg}}"></image>
+      </view>
+      <view class="fl">
+        <view style="margin-top: 5px;">{{info.us_nickname}}</view>
+        <view style="color: #A1A2A2;">学科名称：{{info.ca_name}}</view>
+      </view>
+    </view>
+  </view>
+    <view wx:for="{{info.picture}}" wx:for-index="index" wx:for-item="item" bindtap="imagePreview" data-item="{{item}}">
+      <image src="{{item}}" style="width: 100%;display: block"></image>
+    </view>
+    <view class="punch-btn" wx:if="{{info.like_status == '未点赞'}}">
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+        <image src="../../image/icon9.png"></image>
+        推荐
+      </button>
+    </view>
+    <view class="punch-btn bacgray" wx:else>
+      <image src="../../image/icon9.png"></image>
+      已推荐
+    </view>
+</view>

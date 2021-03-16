@@ -1,0 +1,32 @@
+<view>
+  <view class="content-box">
+    <view class="select">
+      <view style="position: absolute;left:30px;">
+        <Select proparray='{{selectArray1}}' id="study" nowtext='{{courseTitle}}' index-top="col-top" bind:selectStatus="selectStatusClick1"></Select>
+      </view>
+      <view style="position: absolute;left:134px;">
+        <Select proparray='{{selectArray2}}' id="time" nowtext='{{timeTitle}}' index-top="col-top" bind:selectStatus="selectStatusClick2"></Select>
+      </view>
+      <view style="position: absolute;left:238px;">
+        <view class="fl select-item  {{order == '点赞' ? 'bacyellow' : ''}}" bindtap="spot" style="line-height: 22px;">点赞排名</view>
+      </view>
+    </view>
+    <view style="clear: both;height: calc(100vh - 65px);overflow-y: scroll">
+      <view wx:if="{{list.length > 0}}">
+        <view class="opus-item" bindtap="opusdetail" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" data-id="{{item.pr_id}}">
+          <image src="{{item.pr_image}}"></image>
+          <view class="opus-t1">
+            {{item.pr_name}}
+            <view class="label" wx:if="{{item.pr_label == '优秀'}}">优</view>
+          </view>
+          <view class="opus-t2">考核名称：{{item.ca_name}}</view>
+          <view class="opus-t2">项目组编号：{{item.us_class_number}}</view>
+          <view class="opus-t3"><image src="../../image/icon9.png"></image>{{item.pr_like_number}}</view>
+        </view>
+      </view>
+      <view class="noText" wx:else>
+        暂无结果~
+      </view>
+    </view>
+  </view>
+</view>

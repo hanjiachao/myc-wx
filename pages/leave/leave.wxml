@@ -1,0 +1,42 @@
+<view>
+    <view class="header-personal" style="height: 50px;">
+        <view class="select">
+            <view style="position: absolute;left:15px;top: 13px;">
+                <Select proparray='{{selectArray1}}' id="status" nowtext='{{statusTitle}}' index-top="col-top" bind:selectStatus="selectStatusClick1"></Select>
+            </view>
+            <view style="position: absolute;left:119px;top: 13px;">
+                <Select proparray='{{selectArray2}}' id="classify" nowtext='{{classifyTitle}}' index-top="col-top" bind:selectStatus="selectStatusClick2"></Select>
+            </view>
+            <view style="position: absolute;left:223px;top: 13px;">
+                <Select proparray='{{selectArray3}}' id="date" nowtext='{{dateTitle}}' index-top="col-top" bind:selectStatus="selectStatusClick3"></Select>
+            </view>
+        </view>
+    </view>
+    <view class="per-list" style="height: calc(100vh - 151px);overflow-y: scroll">
+       <view wx:if="{{list.length > 0}}">
+           <view class="per-item" wx:for="{{list}}"  wx:for-index="index" wx:for-item="item">
+               <view class="fr energy-time">{{item.week}}</view>
+               <view class="per-item-box">
+                   <view class="per-item-text">{{item.us_nickname}}的请假</view>
+                   <view class="per-item-title">请假类型：{{item.ca_name}}</view>
+                   <view class="per-item-title">开始时间：{{item.start_time}}</view>
+                   <view class="per-item-title">结束时间：{{item.end_time}}</view>
+                   <view class="per-item-title">审核状态：
+                       <view class="yellow" wx:if="{{item.le_status == '待审核'}}">{{item.le_status}}</view>
+                       <view class="red" wx:if="{{item.le_status == '已驳回'}}">{{item.le_status}}</view>
+                       <view class="green" wx:if="{{item.le_status == '已通过'}}">{{item.le_status}}</view>
+                   </view>
+               </view>
+           </view>
+       </view>
+        <view class="noText" wx:else>
+            暂无结果~
+        </view>
+    </view>
+    <view class="leave-bottom">
+        <view class="leave-btn" bindtap="addleave">
+            <image src="../../image/per-icon01.png"></image>请假
+        </view>
+    </view>
+
+</view>

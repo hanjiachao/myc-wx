@@ -1,0 +1,42 @@
+<view>
+  <view class="header-personal">
+    <view class="fl"><image src="{{info.headimg}}"></image></view>
+    <view class="personal-title">
+      <view class="font-h3">{{info.nickname}}</view>
+      <view class="font-h4">第二项目组</view>
+    </view>
+  </view>
+  <view class="per-list opus-list">
+    <view class="opus">
+      <view class="fl">
+        <view>{{info.count}}</view>
+        <view class="opus-l">作品</view>
+      </view>
+      <view class="fr">
+        <view>{{info.count_like_number}}</view>
+        <view class="opus-l">被赞</view>
+      </view>
+      <view class="opus-fine">
+        <view>{{info.like_count}}</view>
+        <view class="opus-l">优秀作品</view>
+      </view>
+    </view>
+  </view>
+  <view class="content-box">
+    <view wx:if="{{list.length > 0}}">
+      <view class="opus-item" bindtap="opusdetail" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" data-id="{{item.pr_id}}">
+        <image src="{{item.pr_image}}"></image>
+        <view class="opus-t1">
+          {{item.pr_name}}
+          <view class="label" wx:if="{{item.pr_label == '优秀'}}">优</view>
+        </view>
+        <view class="opus-t2">学科名称：{{item.ca_name}}</view>
+        <view class="opus-t2">班级编号：{{item.us_class_number}}</view>
+        <view class="opus-t3"><image src="../../image/icon9.png"></image>{{item.pr_like_number}}</view>
+      </view>
+    </view>
+    <view class="noText" wx:else>
+      暂无结果~
+    </view>
+  </view>
+</view>

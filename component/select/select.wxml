@@ -1,0 +1,9 @@
+<view class="col-select">
+  <view class="fl select-item {{selectShow ? 'active-item' : ''}}" bindtap="selectToggle"><view>{{nowtext}} </view><image src="../../image/icon01.png"></image></view>
+  {{style}}
+  <view class="col-list index-top" wx:if="{{selectShow}}">
+      <view class="col-box">
+          <view class="col-item" wx:for="{{proparray}}" wx:for-index="index" wx:for-item="item" data-item="{{item}}"  bindtap="setText">{{item.ca_name}}</view>
+      </view>
+  </view>
+</view>

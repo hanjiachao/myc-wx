@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/personalCenter/personalCenter",
+    "pages/allopus/allopus",
+    "pages/clock/clock",
+    "pages/opus/opus",
+    "pages/opusdetail/opusdetail",
+    "pages/performance/performance",
+    "pages/punch/punch",
+    "pages/login/login",
+    "pages/search/search",
+    "pages/energy/energy",
+    "pages/addleave/addleave",
+    "pages/leave/leave",
+    "pages/meal/meal"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#FDC31A",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/icon11.png",
+        "selectedIconPath": "image/icon12.png"
+      },
+      {
+        "pagePath": "pages/personalCenter/personalCenter",
+        "text": "我的",
+        "iconPath": "image/icon13.png",
+        "selectedIconPath": "image/icon14.png"
+      }
+    ]
+  }
+}

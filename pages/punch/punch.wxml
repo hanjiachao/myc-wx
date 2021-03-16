@@ -1,0 +1,19 @@
+<view>
+  <view>
+    <map id="map" longitude="{{lon}}" latitude="{{lat}}" circles="{{circles}}" scale="15" markers="{{markers}}"  show-location style="width: 100%; height: calc(100vh - 220px);">
+    </map>
+  </view>
+  <view class="content-box punch-pos">
+    <view class="punch">
+      <view class="punch-title">我的位置</view>
+      <view class="location">
+        <image src="../../image/icon03.png"></image>
+        {{address}}
+      </view>
+    </view>
+    <view class="punch-btn" bindtap="punch">
+      <image src="../../image/icon04.png"></image>
+      打卡
+    </view>
+  </view>
+</view>

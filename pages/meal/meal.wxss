@@ -1,0 +1,14 @@
+/* pages/meal/meal.wxss */
+page{
+	padding-top: 30rpx;
+}
+image{
+	width: 500rpx;
+	margin: 30rpx auto 0;
+	display: block;
+}
+.text{
+	text-align: center;
+	line-height: 30rpx;
+	margin-top: 30rpx;
+}

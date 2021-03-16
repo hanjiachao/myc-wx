@@ -1,0 +1,40 @@
+<view wx:if="{{show}}">
+  <view class="header-personal">
+    <view class="clock-title">
+      <view class="fl" bindtap="prevmonth">上个月</view>
+      <view class="fr" bindtap="nextmonth">下个月</view>
+      <view class="title">{{month}}月</view>
+    </view>
+  </view>
+  <view class="per-list">
+    <view class="clock-date">
+      <view class="date-item">周日</view>
+      <view class="date-item">周一</view>
+      <view class="date-item">周二</view>
+      <view class="date-item">周三</view>
+      <view class="date-item">周四</view>
+      <view class="date-item">周五</view>
+      <view class="date-item">周六</view>
+    </view>
+    <view class="clock-number">
+      <view class="date-item" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" bindtap="clock" data-item="{{item}}">
+        <view class="gray" wx:if="{{item.status == '不是本月' || item.status == '放假'}}">
+          {{item.date}}
+        </view>
+        <view wx:else>
+          <view wx:if="{{item.status == '旷课' || item.status == '早退' || item.status == '迟到'}}" style="color:red;">
+            {{item.date}}
+          </view>
+          <view wx:else style="width:100%;text-align: center">
+            <view wx:if="{{item.date == day && item.status != '不是本月' && nowDate}}" class="bacyellow">
+              {{item.date}}
+            </view>
+            <view wx:else>
+              {{item.date}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

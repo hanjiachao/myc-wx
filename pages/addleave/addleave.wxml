@@ -1,0 +1,32 @@
+<view class="addleave">
+    <view class="leve">
+        <view>1.请事假需提前一天填写请假单，经教学老师审批； </view>
+        <view>2.病假或紧急事件需要当天请假的，至少提前半小时请假，返回后立即填补假单；</view>
+        <view>3.请假单存档，一律按旷课处理</view>
+        <view>4.学员每月累计请假不得超过1天</view>
+    </view>
+    <view class="leavelist">
+        <view class="leave-item leave-line">
+            <view class="fr"><image src="../../image/icon08.png"></image></view>
+            <picker value="{{indexClassify}}"  bindchange="selectClassify" range="{{list}}">
+                <view class="picker">
+                    <view class="fr jiantou">{{list[indexClassify]}}</view>
+                    请假类型
+                </view>
+            </picker>
+        </view>
+        <SelectTime nowtext='{{startTime}}' bind:selectSure="selectStart"></SelectTime>
+        <SelectTime nowtext='{{endTime}}' bind:selectSure="selectEnd"></SelectTime>
+        <view class="leave-item">
+            <view class="fr" wx:if="{{info.duration != ''}}">{{info.duration}}天</view>
+            请假时长
+        </view>
+        <view class="leave-text leave-line">
+            <view>备注</view>
+            <textarea placeholder="请输入请假事由" bindinput="bindArea"></textarea>
+        </view>
+        <view class="leave-btn" bindtap="submit">
+            <image src="../../image/per-icon01.png"></image>提交
+        </view>
+    </view>
+</view>

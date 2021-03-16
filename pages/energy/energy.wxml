@@ -1,0 +1,32 @@
+<view>
+    <view class="header-personal">
+        <view class="energy-img"><image src="../../image/img08.png"></image></view>
+        <view class="energy-btn">
+            <view class="wave1"></view>
+            蚂蚁能量{{info.integral}}
+        </view>
+    </view>
+    <view class="per-list">
+        <view class="opus">
+            <view class="fl">
+                <view class="opus-l">考核能量</view>
+                <view>{{info.test_integral}}</view>
+            </view>
+            <view class="fr">
+                <view  class="opus-l">打卡能量</view>
+                <view>{{info.sign_integral}}</view>
+            </view>
+        </view>
+        <view class="energy-title">能量流水</view>
+        <view wx:for="{{list}}" wx:for-item="item" wx:for-index="index">
+            <view class="per-item">
+                <view class="fr energy-time">{{item.add_time}}</view>
+                <view class="per-item-box">
+                    <view class="per-item-text">{{item.bi_source}}</view>
+                    <view class="per-item-num" wx:if="{{item.bi_type == '收入'}}">+{{item.bi_price}}能量</view>
+                    <view class="per-item-num" wx:if="{{item.bi_type == '支出'}}">-{{item.bi_price}}能量</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

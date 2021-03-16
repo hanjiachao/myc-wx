@@ -1,0 +1,22 @@
+<view>
+  <view class="header-personal" style="height: 50px;">
+    <view class="search">
+      <view class="fr search-btn" bindtap="search">搜索</view>
+      <view class="search-input">
+        <image src="../../image/search.png" class="fl"></image>
+        <input type="text" placeholder="请输入考试名称" bindinput="skeyname"/>
+      </view>
+    </view>
+  </view>
+  <view style="height: calc(100vh - 75px);overflow-y: scroll;position: absolute;left: 0px;top:75px;width: 100%;border-radius: 13px 13px 0px 0px;">
+    <view class="per-list" wx:if="{{list.length > 0}}">
+      <view class="per-item" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" bindtap="getscore" data-score="{{item.gr_score}}">
+        <image src="../../image/icon08.png" class="fr per-ri"></image>
+        <view>{{item.gr_name}}</view>
+      </view>
+    </view>
+    <view class="noText" wx:else>
+       暂无结果~
+    </view>
+  </view>
+</view>

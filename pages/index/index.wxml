@@ -1,0 +1,91 @@
+<!--index.wxml-->
+<view>
+  <view class="bac"></view>
+  <view style="position: relative">
+    <view class="header-personal">
+      <view class="search" bindtap="search">
+        <view class="fr search-btn">搜索</view>
+        <view class="search-input">
+          <image src="../../image/search.png" class="fl"></image>
+          <view style="color: #A1A2A2;">作品名称</view>
+        </view>
+      </view>
+    </view>
+    <view class="content-box banner" style="padding-bottom: 5px;">
+      <swiper indicator-dots="{{indicatorDots}}"
+              autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#fff" indicator-active-color="#FDC31A">
+        <block wx:for="{{banner}}" wx:key="*this">
+          <swiper-item>
+            <image src="{{item}}" style="width: 100%;border-radius: 5px;" bindtap="produceDetail" data-index="{{index}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="content-box">
+      <view class="fl navbar-item" bindtap="allopus">
+        <image src="../../image/img6.png" class="fl"></image>
+        <view class="nav-title" style="height:91px;background: #fff;border-radius: 5px;"><view>全部作品</view></view>
+      </view>
+      <view class="fl navbar-item">
+        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+          <image src="../../image/img02.png" class="fl"></image>
+          <view class="nav-title" style="margin-top: 15px;"><view>打卡</view></view>
+        </button>
+      </view>
+    </view>
+    <view class="content-box">
+      <view class="title">
+        本月明星
+      </view>
+      <view class="star">
+        <view class="star-item">
+          <view class="star-img1">
+            <image src="../../image/img03.png" class="top-img"></image>
+            <image src="{{twoarr.us_headimg}}" class="pho-img"></image>
+          </view>
+          <view class="star-name"><view class="star-img">2</view>{{twoarr.us_nickname}}</view>
+        </view>
+        <view class="star-item">
+          <view class="star-img1">
+            <image src="../../image/img04.png" class="top-img"></image>
+            <image src="{{onearr.us_headimg}}" style="width: 70px;height: 70px;" class="pho-img"></image>
+          </view>
+          <view class="star-name"><view class="star-img">1</view>{{onearr.us_nickname}}</view>
+        </view>
+        <view class="star-item">
+          <view class="star-img1">
+            <image src="../../image/img05.png" class="top-img"></image>
+            <image src="{{threearr.us_headimg}}" class="pho-img"></image>
+          </view>
+          <view class="star-name"><view class="star-img">3</view>{{threearr.us_nickname}}</view>
+        </view>
+      </view>
+      <view class="title">
+        优秀作品
+      </view>
+      <view class="select">
+        <view style="position: absolute;left:30px;">
+          <Select proparray='{{selectArray1}}' id="study" nowtext='{{courseTitle}}' index-top="col-top" bind:selectStatus="selectStatusClick1"></Select>
+        </view>
+        <view style="position: absolute; left: 134px;">
+          <Select proparray='{{selectArray2}}' id="time" nowtext='{{timeTitle}}' index-top="col-top" bind:selectStatus="selectStatusClick2"></Select>
+        </view>
+        <view style="position: absolute;left: 238px;">
+          <view class="fl select-item  {{order == '点赞' ? 'bacyellow' : ''}}" bindtap="spot" style="line-height: 22px">点赞排名</view>
+        </view>
+      </view>
+      <view wx:if="{{list.length>0}}">
+          <view class="opus-item" wx:for="{{list}}" wx:for-item="item" wx:for-index="index" bindtap="listdetail" data-id="{{item.pr_id}}">
+            <image src="{{item.pr_image}}"></image>
+            <view class="opus-t1">{{item.pr_name}}</view>
+            <view class="opus-t2">考核名称：{{item.ca_name}}</view>
+            <view class="opus-t2">项目组编号：{{item.us_student_number}}</view>
+            <view class="opus-t3"><image src="../../image/icon9.png"></image>{{item.pr_like_number}}</view>
+          </view>
+      </view>
+      <view class="notext" wx:else>
+          暂无结果~
+      </view> 
+    </view>
+  </view>
+</view>

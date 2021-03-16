@@ -1,0 +1,23 @@
+<view class="header-personal">
+  <view class="title">
+    欢迎来到码蚁程
+  </view>
+</view>
+<view class="per-list">
+  <view class="login">
+    <view class="login-input">
+      <image src="../../image/wel-icon.png" class="fl" style="width: 20px;height: 24px;"></image>
+      <input type="number" placeholder="请输入手机号" bindinput="bindmobile"/>
+    </view>
+    <view>
+    <view class="login-send">
+      <view bindtap="send" class="fr send-btn {{time == 60 ? '' : 'gray'}}">{{time == 60 ? '发送验证码' : time+'s后重发'}}</view>
+      <view class="login-input">
+        <image src="../../image/wel-icon1.png" class="fl" style="width: 20px;height: 19px;"></image>
+        <input type="number" placeholder="发送短信验证码" bindinput="bindcode"/>
+      </view>
+    </view>
+    </view>
+    <view bindtap="bind" class="login-btn">绑定</view>
+  </view>
+</view>

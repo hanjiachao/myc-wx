@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "SelectTime": "/component/selectTime/selectTime"
+  }
+}
